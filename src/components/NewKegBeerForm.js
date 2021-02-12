@@ -34,6 +34,7 @@ function NewKegBeerForm(props) {
           type="number"
           name="alcoholContent"
           placeholder="Beer Alcohol Content(%)" />
+        <button type='submit'>Add Beer to List</button>
       </form>
     </React.Fragment>
   )

@@ -6,7 +6,7 @@ function Header(){
   return (
     <React.Fragment>
       <h1>The Blue Oyster Bar</h1>
-      <img src={headerImg} alt="An image of the blue oyster bar sign" />;
+      <img src={headerImg} alt="An image of the blue oyster bar sign" />
     </React.Fragment>
   )
 }

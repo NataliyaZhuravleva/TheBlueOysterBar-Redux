@@ -4,7 +4,7 @@ import KegBeerList from './KegBeerList';
 
 class KegBeersControl extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
@@ -12,26 +12,34 @@ class KegBeersControl extends React.Component {
     };
   }
 
-handleClick = ()=> {
-  this.setState(prevState => ({
-    formVisibleOnPage: !prevState.formVisibleOnPage
-  }));
-}
+  handleClick = () => {
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
+  }
 
-  render(){
-    let currentlyVisibleState=null;
-    let buttonText=null;
+  handleAddingNewKegBeerToList = (newKegBeer)=>{
+    const newMasterKegBeerList=this.state.masterKegBeerList.concat(newKegBeer);
+    this.setState({
+      masterKegBeerList: newMasterKegBeerList,
+      formVisibleOnPage: false
+    });
+  }
 
-    if (this.state.formVisibleOnPage){
+  render() {
+    let currentlyVisibleState = null;
+    let buttonText = null;
+
+    if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
-      buttonText="Return to Keg Beer List";
+      buttonText = "Return to Keg Beer List";
     } else {
-      currentlyVisibleState=<KegBeerList kegBeerList = {this.state.masterKegBeerList} />
+      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} />
       buttonText = "Add Keg Beer";
     }
-    return(
+    return (
       <React.Fragment>
-        {currentVisibleState}
+        {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     )
