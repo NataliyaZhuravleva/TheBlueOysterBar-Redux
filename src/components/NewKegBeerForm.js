@@ -1,6 +1,6 @@
 import React from 'react';
 import { v4 } from 'uuid';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function NewKegBeerForm(props) {
   function handleNewKegBeerFormSubmission(event) {
