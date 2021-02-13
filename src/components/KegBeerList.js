@@ -8,6 +8,7 @@ function KegBeerList(props) {
       <hr />
       {props.kegBeerList.map((kegBeer) =>
         <KegBeer
+          whenKegBeerClicked = {props.onKegBeerSelection}
           name={kegBeer.name}
           brand={kegBeer.brand}
           price={kegBeer.price}
@@ -21,7 +22,8 @@ function KegBeerList(props) {
 }
 
 KegBeerList.propTypes={
-  kegBeerList: PropTypes.array
+  kegBeerList: PropTypes.array,
+  onKegBeerSelection: PropTypes.func
 }
 
 export default KegBeerList;

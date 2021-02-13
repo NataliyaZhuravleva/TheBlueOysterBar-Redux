@@ -18,4 +18,4 @@ KegBeerDetail.propTypes={
   kegBeer: PropTypes.object
 };
 
-export defaul KegBeerDetail;
+export default KegBeerDetail;

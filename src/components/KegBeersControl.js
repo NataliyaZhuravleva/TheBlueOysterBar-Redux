@@ -1,6 +1,7 @@
 import React from 'react';
 import NewKegBeerForm from './NewKegBeerForm';
 import KegBeerList from './KegBeerList';
+import KegBeerDetail from './KegBeerDetail';
 
 class KegBeersControl extends React.Component {
 
@@ -8,33 +9,46 @@ class KegBeersControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegBeerList: []
+      masterKegBeerList: [],
+      selectedKegBeer: null
     };
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedKegBeer != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedKegBeer: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage
+      }));
+    }
   }
-
-  handleAddingNewKegBeerToList = (newKegBeer)=>{
-    const newMasterKegBeerList=this.state.masterKegBeerList.concat(newKegBeer);
+  handleAddingNewKegBeerToList = (newKegBeer) => {
+    const newMasterKegBeerList = this.state.masterKegBeerList.concat(newKegBeer);
     this.setState({
       masterKegBeerList: newMasterKegBeerList,
       formVisibleOnPage: false
     });
   }
 
+
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedKegBeer != null) {
+      currentlyVisibleState = <KegBeerDetail kegBeer={this.state.selectedKegBeer} />
+      buttonText = "Return to Keg Beer List";
+    }
+    else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
       buttonText = "Return to Keg Beer List";
     } else {
-      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} />
+      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList}/>
       buttonText = "Add Keg Beer";
     }
     return (
@@ -42,8 +56,7 @@ class KegBeersControl extends React.Component {
         {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
-    )
-
+    );
   }
 }
 
