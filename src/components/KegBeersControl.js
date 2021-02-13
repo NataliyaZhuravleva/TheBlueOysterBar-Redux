@@ -33,7 +33,10 @@ class KegBeersControl extends React.Component {
       formVisibleOnPage: false
     });
   }
-
+handleChangingSelectedKegBeer= (id) => {
+  const selectedKegBeer = this.state.masterKegBeerList.filter(kegBeer=>kegBeer.id === id )[0];
+  this.setState({selectedKegBeer: selectedKegBeer});
+}
 
 
   render() {
@@ -48,7 +51,7 @@ class KegBeersControl extends React.Component {
       currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
       buttonText = "Return to Keg Beer List";
     } else {
-      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList}/>
+      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
       buttonText = "Add Keg Beer";
     }
     return (
