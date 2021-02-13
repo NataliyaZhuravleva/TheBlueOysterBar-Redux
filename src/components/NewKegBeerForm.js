@@ -28,10 +28,12 @@ function NewKegBeerForm(props) {
           placeholder="Beer Brand" />
         <input
           type="number"
+          step="0.01"
           name="price"
           placeholder="Beer Price($/pint)" />
         <input
           type="number"
+          step="0.1"
           name="alcoholContent"
           placeholder="Beer Alcohol Content(%)" />
         <button type='submit'>Add Beer to List</button>
