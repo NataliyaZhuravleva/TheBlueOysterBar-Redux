@@ -11,8 +11,11 @@ function KegBeerDetail(props) {
       <p><em>Alcohol Content: </em>{kegBeer.alcoholContent}%</p>
       {kegBeer.pintsLeft === 0 ?
         <p>Out of Stock</p>
+        : kegBeer.pintsLeft<10 ?
+        <p><em>Pints Left: </em>{kegBeer.pintsLeft} Almost Empty</p>
         : <p><em>Pints Left: </em>{kegBeer.pintsLeft}</p>
       }
+      
       <hr />
       {kegBeer.pintsLeft > 0 ? <button onClick={props.onClickingSell}>Sell a pint</button> : null}
       <button onClick={() => onClickingEdit()}>Update Beer</button>
