@@ -30,6 +30,8 @@ class KegBeersControl extends React.Component {
       }));
     }
   }
+
+  //Create
   handleAddingNewKegBeerToList = (newKegBeer) => {
     const newMasterKegBeerList = this.state.masterKegBeerList.concat(newKegBeer);
     this.setState({
@@ -37,11 +39,14 @@ class KegBeersControl extends React.Component {
       formVisibleOnPage: false
     });
   }
+
+  //Details
   handleChangingSelectedKegBeer = (id) => {
     const selectedKegBeer = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id === id)[0];
     this.setState({ selectedKegBeer: selectedKegBeer });
   }
 
+  //Delete
   handleDeletingKegBeer = (id) => {
     const newMasterKegBeerList = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id !== id);
     this.setState({
@@ -49,15 +54,14 @@ class KegBeersControl extends React.Component {
       selectedKegBeer: null
     });
   }
-
+  //Edit
   handleEditClick = () => {
-    console.log("handleEditClick reached!");
     this.setState({ editing: true });
   }
 
   handleEditingKegBeerInList = (kegBeerToEdit) => {
     const editedMasterKegBeerList = this.state.masterKegBeerList
-      .filter(kegBeer=>KegBeer.id !== this.state.selectedKegBeer.id)
+      .filter(kegBeer => KegBeer.id !== this.state.selectedKegBeer.id)
       .concat(kegBeerToEdit);
     this.setState({
       masterKegBeerList: editedMasterKegBeerList,
@@ -66,26 +70,41 @@ class KegBeersControl extends React.Component {
     });
   }
 
+  handleSellClick = (id) => {
+    const kegBeerToSell = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id === this.state.selectedKegBeer.id)[0];
+    if (kegBeerToSell.pintsLeft > 0) {
+      kegBeerToSell.pintsLeft--;
+    }
+    const editedKegBeerList = this.state.masterKegBeerList.filter(kegBeer => KegBeer.id !== id);
+    this.setState({
+      masterKegBeerList: editedKegBeerList,
+      editing: false,
+      selectedKegBeer: null
+    });
+  }
+
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (this.state.editing) {
-      currentlyVisibleState = <EditKegBeerForm kegBeer={this.state.selectedKegBeer} onEditKegBeer = {this.handleEditingKegBeerInList} />
+      currentlyVisibleState = <EditKegBeerForm kegBeer={this.state.selectedKegBeer} onEditKegBeer={this.handleEditingKegBeerInList} />
       buttonText = "Return to Keg Beers List";
     } else if (this.state.selectedKegBeer != null) {
       currentlyVisibleState =
         <KegBeerDetail
           kegBeer={this.state.selectedKegBeer}
           onClickingDelete={this.handleDeletingKegBeer}
-          onClickingEdit={this.handleEditClick} />
-      buttonText = "Return to Keg Beers List";
+          onClickingEdit={this.handleEditClick}
+          onClickingSell={this.handleSellClick} />
+        buttonText = "Return to Keg Beers List";
     } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
-      buttonText = "Return to Keg Beers List";
+        currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
+        buttonText = "Return to Keg Beers List";
     } else {
-      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
-      buttonText = "Add Keg Beer";
+        currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
+        buttonText = "Add Keg Beer";
     }
     return (
       <React.Fragment>
