@@ -38,13 +38,20 @@ handleChangingSelectedKegBeer= (id) => {
   this.setState({selectedKegBeer: selectedKegBeer});
 }
 
+handleDeletingKegBeer = (id) => {
+  const newMasterKegBeerList = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id !== id);
+  this.setState({
+    masterKegBeerList: newMasterKegBeerList,
+    selectedKegBeer: null
+  });
+}
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (this.state.selectedKegBeer != null) {
-      currentlyVisibleState = <KegBeerDetail kegBeer={this.state.selectedKegBeer} />
+      currentlyVisibleState = <KegBeerDetail kegBeer={this.state.selectedKegBeer} onClickingDelete = {this.handleDeletingKegBeer} />
       buttonText = "Return to Keg Beer List";
     }
     else if (this.state.formVisibleOnPage) {
