@@ -5,14 +5,29 @@ function KegBeerDetail(props) {
   const { kegBeer, onClickingDelete, onClickingEdit } = props;
   return (
     <React.Fragment>
-      <h1>Beer Details:</h1>
-      <h3>{props.name}({kegBeer.brand}):</h3>
-      <p><em>Price: </em>${kegBeer.price}</p>
-      <p><em>Alcohol Content: </em>{kegBeer.alcoholContent}%</p>
+      <h1 style={{color: '#575B56'}}>Beer Details:</h1>
+      <h3 style={{color: '#ff3358'}}>{kegBeer.name}({kegBeer.brand}):</h3>
+      
+      {/* price handling */}
+      {kegBeer.price<=3 ?
+      <p >Price: <em style={{color: 'red'}}>${kegBeer.price}<br />Beer on Sale!</em></p>
+      : kegBeer.price>=15 ?
+      <p >Price: <em style={{color: 'red'}}>${kegBeer.price}<br />Craft Beer!</em></p>
+      : <p>Price: <em>${kegBeer.price}</em></p>
+      }
+      
+      {/* alcoholContent handling */}
+      {kegBeer.alcoholContent>=7 ?
+        <p >Alcohol Content: <em style={{color: 'red'}}>{kegBeer.alcoholContent}%<br />Strong beer! Don't sell more than 3 pints per person!</em></p>
+        :  <p>Alcohol Content: <em>{kegBeer.alcoholContent}%</em></p>
+      }
+     
+      
+      {/* pints Left handling */}
       {kegBeer.pintsLeft === 0 ?
-        <p>Out of Stock</p>
+        <p style={{color: 'red'}}>Out of Stock</p>
         : kegBeer.pintsLeft<10 ?
-        <p><em>Pints Left: </em>{kegBeer.pintsLeft} Almost Empty</p>
+        <p >Pints Left: <em style={{color: 'red'}}>{kegBeer.pintsLeft}!<br />Almost Empty</em></p>
         : <p><em>Pints Left: </em>{kegBeer.pintsLeft}</p>
       }
       
