@@ -54,6 +54,7 @@ class KegBeersControl extends React.Component {
       selectedKegBeer: null
     });
   }
+
   //Edit
   handleEditClick = () => {
     this.setState({ editing: true });
@@ -83,7 +84,6 @@ class KegBeersControl extends React.Component {
     });
   }
 
-
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -98,13 +98,13 @@ class KegBeersControl extends React.Component {
           onClickingDelete={this.handleDeletingKegBeer}
           onClickingEdit={this.handleEditClick}
           onClickingSell={this.handleSellClick} />
-        buttonText = "Return to Keg Beers List";
+      buttonText = "Return to Keg Beers List";
     } else if (this.state.formVisibleOnPage) {
-        currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
-        buttonText = "Return to Keg Beers List";
+      currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
+      buttonText = "Return to Keg Beers List";
     } else {
-        currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
-        buttonText = "Add Keg Beer";
+      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
+      buttonText = "Add Keg Beer";
     }
     return (
       <React.Fragment>

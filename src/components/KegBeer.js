@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function KegBeer(props) {
+
   return (
     <React.Fragment>
       <div onClick={() => props.whenKegBeerClicked(props.id)}>
@@ -20,7 +21,6 @@ function KegBeer(props) {
         :  <p>Alcohol Content: <em>{props.alcoholContent}%</em></p>
       }
      
-      
       {/* pints Left handling */}
       {props.pintsLeft === 0 ?
         <p style={{color: 'red'}}>Out of Stock</p>

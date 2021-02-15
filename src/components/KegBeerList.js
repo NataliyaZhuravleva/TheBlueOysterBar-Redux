@@ -3,6 +3,7 @@ import KegBeer from './KegBeer';
 import PropTypes from 'prop-types';
 
 function KegBeerList(props) {
+  
   return (
     <React.Fragment>
       <hr />

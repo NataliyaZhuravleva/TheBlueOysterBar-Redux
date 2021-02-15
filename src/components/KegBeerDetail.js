@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 function KegBeerDetail(props) {
   const { kegBeer, onClickingDelete, onClickingEdit } = props;
+  
   return (
     <React.Fragment>
       <h1 style={{color: '#575B56'}}>Beer Details:</h1>
@@ -21,8 +22,7 @@ function KegBeerDetail(props) {
         <p >Alcohol Content: <em style={{color: 'red'}}>{kegBeer.alcoholContent}%<br />Strong beer! Don't sell more than 3 pints per person!</em></p>
         :  <p>Alcohol Content: <em>{kegBeer.alcoholContent}%</em></p>
       }
-     
-      
+          
       {/* pints Left handling */}
       {kegBeer.pintsLeft === 0 ?
         <p style={{color: 'red'}}>Out of Stock</p>

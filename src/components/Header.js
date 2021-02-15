@@ -7,8 +7,8 @@ function Header() {
   const myStyledComponentStyles = {
     color: '#4183c2',
     fontFamily: 'sans-serif',
-
   }
+  
   return (
     <React.Fragment>
       <div style={myStyledComponentStyles}>
