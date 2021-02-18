@@ -80,7 +80,7 @@ class KegBeersControl extends React.Component {
     this.setState({
       masterKegBeerList: editedKegBeerList,
       editing: false,
-      selectedKegBeer: null
+      selectedKegBeer: kegBeerToSell
     });
   }
 
