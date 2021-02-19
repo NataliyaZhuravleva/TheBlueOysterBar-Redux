@@ -115,13 +115,15 @@ class KegBeersControl extends React.Component {
 
 KegBeersControl.propTypes = {
   masterKegBeerList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  editing:PropTypes.bool,
 };
 
 const mapStateToProps = state =>{
   return {
     masterKegBeerList: state.masterKegBeerList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    editing: state.editing,
   }
 }
 
