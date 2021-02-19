@@ -23,7 +23,13 @@ class KegBeersControl extends React.Component {
         selectedKegBeer: null,
         editing: false
       });
-    } 
+    } else {
+      const {dispatch} = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
+    }
   }
 
   //Create
@@ -39,6 +45,10 @@ class KegBeersControl extends React.Component {
       id: id
     };
     dispatch(action);
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
 
   //Details
