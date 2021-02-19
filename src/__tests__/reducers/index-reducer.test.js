@@ -29,6 +29,7 @@ describe("rootReducer", () => {
       brand: 'Guinness',
       price: 4.99,
       alcoholContent: 5.0,
+      pintsLeft: 124,
       id: 1
     }
     store.dispatch(action);

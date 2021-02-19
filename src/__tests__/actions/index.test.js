@@ -17,12 +17,13 @@ describe('the blue oyster bar actions', () => {
   });
 
   it('addKegBeer should create ADD_KEGBEER action', () => {
-    expect(actions.addKegBeer({ name: 'Guinness Blonde', brand: 'Guinness', price: 4.99, alcoholContent: 5.0, id: 1 })).toEqual({
+    expect(actions.addKegBeer({ name: 'Guinness Blonde', brand: 'Guinness', price: 4.99, alcoholContent: 5.0, pintsLeft: 124, id: 1 })).toEqual({
       type: c.ADD_KEGBEER,
       name: 'Guinness Blonde',
       brand: 'Guinness',
       price: 4.99,
       alcoholContent: 5.0,
+      pintsLeft: 124,
       id: 1
     })
   })

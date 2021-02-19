@@ -8,6 +8,7 @@ describe('kegBeerListReducer', () => {
     brand: 'Guinness',
     price: 4.99,
     alcoholContent: 5.0,
+    pintsLeft: 124,
     id: 1
   }
   const currentState = {
@@ -16,6 +17,7 @@ describe('kegBeerListReducer', () => {
       brand: 'Guinness',
       price: 4.99,
       alcoholContent: 5.0,
+      pintsLeft: 124,
       id: 1
     },
     2: {
@@ -23,6 +25,7 @@ describe('kegBeerListReducer', () => {
       brand: 'Guinness',
       price: 5.99,
       alcoholContent: 5.6,
+      pintsLeft: 124,
       id: 2
     },
   }
@@ -32,13 +35,14 @@ describe('kegBeerListReducer', () => {
   });
 
   test('Should successfully add new keg beer data to masterKegBeerList', () => {
-    const { name, brand, price, alcoholContent, id } = kegBeerData;
+    const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerData;
     action = {
       type: c.ADD_KEGBEER,
       name: name,
       brand: brand,
       price: price,
       alcoholContent: alcoholContent,
+      pintsLeft: pintsLeft,
       id: id
     };
     expect(kegBeerListReducer({}, action)).toEqual({
@@ -47,6 +51,7 @@ describe('kegBeerListReducer', () => {
         brand: brand,
         price: price,
         alcoholContent: alcoholContent,
+        pintsLeft: pintsLeft,
         id: id
       }
     });
@@ -63,6 +68,7 @@ describe('kegBeerListReducer', () => {
         brand: 'Guinness',
         price: 5.99,
         alcoholContent: 5.6,
+        pintsLeft: 124,
         id: 2
       },
     });
