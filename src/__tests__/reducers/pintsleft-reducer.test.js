@@ -12,8 +12,7 @@ describe ('pintsLeftReducer', ()=>{
   }
   test('Should successfully sell a keg pint', () => {
     
-    console.log(kegBeerData);
-    expect(pintsLeftReducer(kegBeerData, c.SELL_PINT)).toMatchObject({
+    expect(pintsLeftReducer(kegBeerData, c.SELL_PINT)).toEqual({
         name: 'Guinness Blonde',
         brand: 'Guinness',
         price: 4.99,
