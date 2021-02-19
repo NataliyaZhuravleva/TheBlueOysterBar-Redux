@@ -5,6 +5,7 @@ import KegBeerDetail from './KegBeerDetail';
 import EditKegBeerForm from './EditKegBeerForm';
 import KegBeer from './KegBeer';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class KegBeersControl extends React.Component {
 
@@ -49,7 +50,7 @@ class KegBeersControl extends React.Component {
 
   //Details
   handleChangingSelectedKegBeer = (id) => {
-    const selectedKegBeer = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id === id)[0];
+    const selectedKegBeer = this.props.masterKegBeerList[id];
     this.setState({ selectedKegBeer: selectedKegBeer });
   }
 
@@ -119,7 +120,7 @@ class KegBeersControl extends React.Component {
       currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
       buttonText = "Return to Keg Beers List";
     } else {
-      currentlyVisibleState = <KegBeerList kegBeerList={this.state.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
+      currentlyVisibleState = <KegBeerList kegBeerList={this.props.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
       buttonText = "Add Keg Beer";
     }
     return (
@@ -130,5 +131,17 @@ class KegBeersControl extends React.Component {
     );
   }
 }
-KegBeersControl = connect()(KegBeersControl);
+
+KegBeersControl.propTypes = {
+  masterKegBeerList: PropTypes.object
+};
+
+const mapStateToProps = state =>{
+  return {
+    masterKegBeerList: state
+  }
+}
+
+KegBeersControl = connect(mapStateToProps)(KegBeersControl);
+
 export default KegBeersControl;
