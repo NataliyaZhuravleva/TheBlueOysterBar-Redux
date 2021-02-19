@@ -119,7 +119,7 @@ class KegBeersControl extends React.Component {
           onClickingEdit={this.handleEditClick}
           onClickingSell={this.handleSellClick} />
       buttonText = "Return to Keg Beers List";
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
       buttonText = "Return to Keg Beers List";
     } else {
