@@ -5,8 +5,8 @@ describe('kegBeerListReducer', () => {
   const kegBeerData = {
     name: 'Guinness Blonde',
     brand: 'Guinness',
-    price: '6.99',
-    alcoholContent: '5.0',
+    price: 6.99,
+    alcoholContent: 5.0,
     id: 1
   }
 
