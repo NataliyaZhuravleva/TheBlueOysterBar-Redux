@@ -1,0 +1,3 @@
+export const ADD_KEGBEER = 'ADD_KEGBEER';
+export const DELETE_KEGBEER = 'DELETE_KEGBEER';
+export const TOGGLE_FORM = 'TOGGLE_FORM';

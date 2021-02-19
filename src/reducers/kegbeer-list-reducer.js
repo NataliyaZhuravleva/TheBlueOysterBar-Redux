@@ -1,8 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
+import * as c from './../actions/ActionTypes';
 export default (state = {}, action) => {
   const { name, brand, price, alcoholContent, id } = action;
   switch (action.type) {
-    case 'ADD_KEGBEER':
+    case c.ADD_KEGBEER:
       return Object.assign({}, state, {
         [id]: {
           name: name,
@@ -12,7 +13,7 @@ export default (state = {}, action) => {
           id: id
         }
       });
-    case 'DELETE_KEGBEER':
+    case c.DELETE_KEGBEER:
       let newState={...state};
       delete newState[id];
       return newState;  

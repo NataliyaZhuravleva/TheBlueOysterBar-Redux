@@ -1,4 +1,5 @@
 import kegBeerListReducer from '../../reducers/kegbeer-list-reducer';
+import * as c from '../../actions/ActionTypes';
 
 describe('kegBeerListReducer', () => {
   let action;
@@ -33,7 +34,7 @@ describe('kegBeerListReducer', () => {
   test('Should successfully add new keg beer data to masterKegBeerList', () => {
     const { name, brand, price, alcoholContent, id } = kegBeerData;
     action = {
-      type: 'ADD_KEGBEER',
+      type: c.ADD_KEGBEER,
       name: name,
       brand: brand,
       price: price,
@@ -53,7 +54,7 @@ describe('kegBeerListReducer', () => {
 
   test('Should successfully delete a keg beer', () => {
     action = {
-      type: 'DELETE_KEGBEER',
+      type: c.DELETE_KEGBEER,
       id: 1
     };
     expect(kegBeerListReducer(currentState, action)).toEqual({

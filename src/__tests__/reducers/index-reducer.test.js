@@ -2,6 +2,7 @@ import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import kegBeerListReducer from '../../reducers/kegbeer-list-reducer';
+import * as c from '../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
 
@@ -23,7 +24,7 @@ describe("rootReducer", () => {
 
   test('Check that ADD_KEGBEER action works for kegBeerListReducer and root reducer', () => {
     const action = {
-      type: 'ADD_KEGBEER',
+      type: c.ADD_KEGBEER,
       name: 'Guinness Blonde',
       brand: 'Guinness',
       price: 4.99,
@@ -33,10 +34,10 @@ describe("rootReducer", () => {
     store.dispatch(action);
     expect(store.getState().masterKegBeerList).toEqual(kegBeerListReducer(undefined, action));
   });
-  
+
   test('Check that TOGGLE_FORM action works for formVisibleReducer and root reducer', () => {
     const action = {
-      type: 'TOGGLE_FORM'
+      type: c.TOGGLE_FORM
     }
     store.dispatch(action);
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
