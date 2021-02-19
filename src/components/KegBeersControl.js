@@ -12,7 +12,6 @@ class KegBeersControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegBeerList: [],
       selectedKegBeer: null,
       editing: false
     };
@@ -34,11 +33,18 @@ class KegBeersControl extends React.Component {
 
   //Create
   handleAddingNewKegBeerToList = (newKegBeer) => {
-    const newMasterKegBeerList = this.state.masterKegBeerList.concat(newKegBeer);
-    this.setState({
-      masterKegBeerList: newMasterKegBeerList,
-      formVisibleOnPage: false
-    });
+    const {dispatch} = this.props;
+    const { name, brand, price, alcoholContent, id } = newKegBeer;
+    const action = {
+      type: 'ADD_KEGBEER',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      id: id
+    };
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
   }
 
   //Details
