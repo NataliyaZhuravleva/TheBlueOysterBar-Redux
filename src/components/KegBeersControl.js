@@ -33,7 +33,7 @@ class KegBeersControl extends React.Component {
 
   //Create
   handleAddingNewKegBeerToList = (newKegBeer) => {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
     const { name, brand, price, alcoholContent, id } = newKegBeer;
     const action = {
       type: 'ADD_KEGBEER',
@@ -44,7 +44,7 @@ class KegBeersControl extends React.Component {
       id: id
     };
     dispatch(action);
-    this.setState({formVisibleOnPage: false});
+    this.setState({ formVisibleOnPage: false });
   }
 
   //Details
@@ -68,11 +68,18 @@ class KegBeersControl extends React.Component {
   }
 
   handleEditingKegBeerInList = (kegBeerToEdit) => {
-    const editedMasterKegBeerList = this.state.masterKegBeerList
-      .filter(kegBeer => kegBeer.id !== this.state.selectedKegBeer.id)
-      .concat(kegBeerToEdit);
+    const { dispatch } = this.props;
+    const { name, brand, price, alcoholContent, id } = kegBeerToEdit;
+    const action = {
+      type: 'ADD_KEGBEER',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      id: id
+    };
+    dispatch(action);
     this.setState({
-      masterKegBeerList: editedMasterKegBeerList,
       editing: false,
       selectedKegBeer: null
     });
