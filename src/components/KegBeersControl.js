@@ -4,6 +4,7 @@ import KegBeerList from './KegBeerList';
 import KegBeerDetail from './KegBeerDetail';
 import EditKegBeerForm from './EditKegBeerForm';
 import KegBeer from './KegBeer';
+import { connect } from 'react-redux';
 
 class KegBeersControl extends React.Component {
 
@@ -114,5 +115,5 @@ class KegBeersControl extends React.Component {
     );
   }
 }
-
+KegBeersControl = connect()(KegBeersControl);
 export default KegBeersControl;
