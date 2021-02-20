@@ -33,4 +33,10 @@ describe('the blue oyster bar actions', () => {
       type: c.TOGGLE_UPDATE
     });
   });
+
+  it('selectedKegBeer should create SELECT_KEGBEER action', () => {
+    expect(actions.selectedKegBeer()).toEqual({
+      type: c.SELECT_KEGBEER
+    });
+  });
 });

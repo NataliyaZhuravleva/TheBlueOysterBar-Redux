@@ -11,14 +11,13 @@ import * as b from './../actions';
 class KegBeersControl extends React.Component {
 
   handleClick = () => {
-    if (this.state.selectedKegBeer != null) {
-      this.setState({
-        selectedKegBeer: null,
-      });
-    } else {
-      const {dispatch} = this.props;
-      const action = b.toggleForm();
+    const {dispatch} = this.props;
+    if (this.props.selectedKegBeer != null) {
+      const action =b.selectedKegBeer();
       dispatch(action);
+    } else {
+      const action2 = b.toggleForm();
+      dispatch(action2);
     }
   }
 
@@ -33,8 +32,10 @@ class KegBeersControl extends React.Component {
 
   //Details
   handleChangingSelectedKegBeer = (id) => {
+    const {dispatch} = this.props;
     const selectedKegBeer = this.props.masterKegBeerList[id];
-    this.setState({ selectedKegBeer: selectedKegBeer });
+    const action = b.selectedKegBeer(selectedKegBeer);
+    dispatch(action);
   }
 
   //Delete
@@ -42,7 +43,8 @@ class KegBeersControl extends React.Component {
     const { dispatch } = this.props;
     const action = b.deleteKegBeer(id);
     dispatch(action);
-    this.setState({selectedKegBeer: null});
+    const action2 = b.selectedKegBeer(null);
+    dispatch(action2);
   }
 
   //Edit
@@ -58,12 +60,13 @@ class KegBeersControl extends React.Component {
     dispatch(action);
     const action2 = b.editing();
     dispatch(action2);
-    this.setState({
-      selectedKegBeer: null
-    });
+    const action3 = b.selectedKegBeer(null);
+    dispatch(action3);
+    
   }
 
   handleSellClick = (id) => {
+    //const {dispatch} = this.props;
     const kegBeerToSell = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id === this.state.selectedKegBeer.id)[0];
     if (kegBeerToSell.pintsLeft > 0) {
       kegBeerToSell.pintsLeft--;
@@ -81,12 +84,12 @@ class KegBeersControl extends React.Component {
     let buttonText = null;
 
     if (this.props.editing) {
-      currentlyVisibleState = <EditKegBeerForm kegBeer={this.state.selectedKegBeer} onEditKegBeer={this.handleEditingKegBeerInList} />
+      currentlyVisibleState = <EditKegBeerForm kegBeer={this.props.selectedKegBeer} onEditKegBeer={this.handleEditingKegBeerInList} />
       buttonText = "Return to Keg Beers List";
-    } else if (this.state.selectedKegBeer != null) {
+    } else if (this.props.selectedKegBeer != null) {
       currentlyVisibleState =
         <KegBeerDetail
-          kegBeer={this.state.selectedKegBeer}
+          kegBeer={this.props.selectedKegBeer}
           onClickingDelete={this.handleDeletingKegBeer}
           onClickingEdit={this.handleEditClick}
           onClickingSell={this.handleSellClick} />
