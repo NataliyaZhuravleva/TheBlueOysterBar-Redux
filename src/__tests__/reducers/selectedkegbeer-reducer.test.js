@@ -28,7 +28,7 @@ describe("formVisibleReducer", () => {
       pintsLeft: pintsLeft,
       id: id
     };
-    expect(selectedKegBeerReducer({}, action)).toEqual({
+    expect(selectedKegBeerReducer(null, action)).toEqual({
       name: name,
       brand: brand,
       price: price,

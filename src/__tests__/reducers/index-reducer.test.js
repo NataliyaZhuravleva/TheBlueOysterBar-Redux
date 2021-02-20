@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import kegBeerListReducer from '../../reducers/kegbeer-list-reducer';
 import editingReducer from '../../reducers/editing-reducer';
+import selectedKegBeerReducer from '../../reducers/selectedkegbeer-reducer';
 import * as c from '../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
@@ -14,6 +15,7 @@ describe("rootReducer", () => {
       masterKegBeerList: {},
       formVisibleOnPage: false,
       editing: false,
+      selectedKegBeer: null,
     });
   });
   test('Check that initial state of kegBeerListReducer matches root reducer', () => {
@@ -52,6 +54,14 @@ describe("rootReducer", () => {
     }
     store.dispatch(action);
     expect(store.getState().editing).toEqual(editingReducer(undefined, action));
+  });
+
+  test('Check that SELECT_KEGBEER action works for selectedKegBeerReducer and root reducer', () => {
+    const action = {
+      type: c.SELECT_KEGBEER
+    }
+    store.dispatch(action);
+    expect(store.getState().selectedKegBeer).toEqual(selectedKegBeerReducer(undefined, action));
   });
 
 });

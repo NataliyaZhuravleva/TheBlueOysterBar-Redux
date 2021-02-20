@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as c from './../actions/ActionTypes';
 
-export default (state = {}, action) => {
+export default (state = null, action) => {
   const { name, brand, price, alcoholContent, pintsLeft, id } = action;
   switch (action.type) {
     case c.SELECT_KEGBEER:
@@ -16,5 +16,4 @@ export default (state = {}, action) => {
     default:
       return state;
   }
-
 }

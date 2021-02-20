@@ -10,13 +10,6 @@ import * as b from './../actions';
 
 class KegBeersControl extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedKegBeer: null,
-    };
-  }
-
   handleClick = () => {
     if (this.state.selectedKegBeer != null) {
       this.setState({
@@ -118,6 +111,7 @@ KegBeersControl.propTypes = {
   masterKegBeerList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool,
   editing:PropTypes.bool,
+  selectedKegBeer: PropTypes.object
 };
 
 const mapStateToProps = state =>{
@@ -125,6 +119,7 @@ const mapStateToProps = state =>{
     masterKegBeerList: state.masterKegBeerList,
     formVisibleOnPage: state.formVisibleOnPage,
     editing: state.editing,
+    selectedKegBeer: state.selectedKegBeer,
   }
 }
 
