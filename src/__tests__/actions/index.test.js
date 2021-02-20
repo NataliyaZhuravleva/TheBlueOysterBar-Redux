@@ -26,5 +26,11 @@ describe('the blue oyster bar actions', () => {
       pintsLeft: 124,
       id: 1
     })
-  })
+  });
+
+  it('editing should create TOGGLE_UPDATE action', () => {
+    expect(actions.editing()).toEqual({
+      type: c.TOGGLE_UPDATE
+    });
+  });
 });
