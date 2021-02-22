@@ -40,16 +40,16 @@
 ## <span style="color:#0ec2b8" id="about">About the Project</span>
 ### <span style="color:#0ec2b8" id="description">Description</span>
 
-_`The Blue Oester Bar app` is the app where a bar stuff can track their kegs. This application is built utilizing JavaScript and React.
+_`The Blue Oester Bar app` is the app where a bar stuff can track their kegs. This application is built utilizing JavaScript, React and Redux.
 The application has following functionality:_
 
 * A user may see a list of all available keg beers. For each keg, they can see its `name`, `brand`, `price` and `alcoholContent`.
 * A user can submit a form to `add` a new keg beer to a list.
 * A user is able to click on a keg to see its `detail` page.
 * A user may see how many pints are left in a keg. A full keg has roughly `124` pints.
-* A user is able to click a button `Sell Beer` in beer details when they sell a pint of it. This decreases the number of pints left by 1. 
-* Pints is not be able to go below `0`. Once keg is empty, user have a message `Out of Stock` (color-coded in red color).
-* A user have a message that says `Almost Empty`(color-coded in red color) if keg is with less than 10 pints.
+* A user should be able to click a button `Sell a pint` in beer details when they sell a pint of it. This should decrease the number of pints left by 1. (temporarily not working)
+* Pints is not be able to go below `0`. Once keg is empty, user have a message `Out of Stock` (color-coded in red color). (temporarily not working)
+* A user have a message that says `Almost Empty`(color-coded in red color) if keg is with less than 10 pints. (temporarily not working)
 * Prices are color-coded based on their price:
   1. If the price less or equal `$3`, user have a message `Beer on Sale!` in red color.
   2. If the price more or equal `$15`, user have a message `Craft Beer!` in red color.
@@ -61,6 +61,7 @@ The application has following functionality:_
 
 * _JavaScript_
 * _React/JSX_
+* _Redux_
 * _jQuery_
 * _VisualStudio Code_
 * _Git_
@@ -70,13 +71,13 @@ The application has following functionality:_
 ![Preview](src/img/bar-diagram.png)
 ### <span style="color:#0ec2b8" id="bugs">Known Bugs</span>
 
-_No known bugs._
+_Sell a pint button doesn't work_
 
 ## <span style="color:#0ec2b8" id="setup">Setup and Use</span>
 ### <span style="color:#0ec2b8" id="cloning">Cloning the project</span>
-1. _Navigate to my [TheBlueOysterBar repo](https://github.com/NataliyaZhuravleva/TheBlueOysterBar) at https://github.com/NataliyaZhuravleva/TheBlueOysterBar_ to view the project files and commits.
+1. _Navigate to my [TheBlueOysterBar-Redux repo](https://github.com/NataliyaZhuravleva/TheBlueOysterBar-Redux) at https://github.com/NataliyaZhuravleva/TheBlueOysterBar-Redux_ to view the project files and commits.
 2. _Click on the green button labeled `Code`_ to copy repository URL.
-3. _Clone the repository to your local machine_ by opening your machine terminal and using the command `git clone https://github.com/NataliyaZhuravleva/TheBlueOysterBar`.
+3. _Clone the repository to your local machine_ by opening your machine terminal and using the command `git clone https://github.com/NataliyaZhuravleva/TheBlueOysterBar-Redux`.
 
 ### <span style="color:#0ec2b8" id="running">Running Application</span> 
 
