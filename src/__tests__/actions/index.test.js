@@ -49,7 +49,8 @@ describe('the blue oyster bar actions', () => {
   });  
   
   it('pintsLeft should create SELL_PINT action', () => {
-    expect(actions.pintsLeft()).toEqual({
+    const kegBeer= {}
+    expect(actions.pintsLeft(kegBeer)).toEqual({
       type: c.SELL_PINT
     });
   });

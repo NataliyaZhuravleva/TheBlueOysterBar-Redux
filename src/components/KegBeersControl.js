@@ -77,19 +77,18 @@ class KegBeersControl extends React.Component {
 
   handleSellClick = (id) => {
     const {dispatch} = this.props;
-    //const kegBeerToSell = this.state.masterKegBeerList.filter(kegBeer => kegBeer.id === this.state.selectedKegBeer.id)[0];
-    const kegBeerToSell = this.props.masterKegBeerList[id];
-    console.log(kegBeerToSell);
+    const kegBeerToSell = this.props.selectedKegBeer;
     if (kegBeerToSell.pintsLeft > 0) {
-      //kegBeerToSell.pintsLeft--;
-      const action = b.sell
+      const action = b.pintsLeft(kegBeerToSell);
+      dispatch(action);
+      console.log(kegBeerToSell);
     }
-    const editedKegBeerList = this.state.masterKegBeerList.filter(kegBeer => KegBeer.id !== id);
-    this.setState({
-      masterKegBeerList: editedKegBeerList,
-      editing: false,
-      selectedKegBeer: kegBeerToSell
-    });
+    const action2 = b.deleteKegBeer(id);
+    dispatch(action2);
+    const action3 = b.addKegBeer(kegBeerToSell);
+    dispatch(action3);
+    const action4 = b.selectedKegBeer(kegBeerToSell);
+    dispatch(action4);
   }
 
   render() {
@@ -129,6 +128,7 @@ KegBeersControl.propTypes = {
   formVisibleOnPage: PropTypes.bool,
   editing:PropTypes.bool,
   selectedKegBeer: PropTypes.object,
+  pintsLeft: PropTypes.object
 };
 
 const mapStateToProps = state =>{
@@ -137,6 +137,7 @@ const mapStateToProps = state =>{
     formVisibleOnPage: state.formVisibleOnPage,
     editing: state.editing,
     selectedKegBeer: state.selectedKegBeer,
+    pintsLeft: state.pintsLeft
   }
 }
 

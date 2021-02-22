@@ -72,7 +72,7 @@ describe("rootReducer", () => {
     expect(store.getState().selectedKegBeer).toEqual(selectedKegBeerReducer(undefined, action));
   });
 
-  test('Check that SELL_PINT action works for pintsleftReducer and root reducer', () => {
+  test('Check that SELL_PINT action works for pintsLeftReducer and root reducer', () => {
     const action = {
       type: c.SELL_PINT,     
     }

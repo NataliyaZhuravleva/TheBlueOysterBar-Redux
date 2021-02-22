@@ -36,8 +36,15 @@ export const deselectKegBeer = ()=>({
   type: c.DESELECT_KEGBEER
 });
 
-export const pintsLeft = (pintsLeft)=>({
-  type: c.SELL_PINT,
-  pintsLeft: pintsLeft
-
-});
+export const pintsLeft = (kegBeerToSell)=>{
+  const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerToSell;
+  return {
+    type: c.SELL_PINT,
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      pintsLeft: pintsLeft,
+      id: id
+  }
+};

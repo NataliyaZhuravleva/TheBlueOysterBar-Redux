@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function KegBeerDetail(props) {
-  const { kegBeer, onClickingDelete, onClickingEdit } = props;
+  const { kegBeer, onClickingDelete, onClickingEdit, onClickingSell } = props;
   
   return (
     <React.Fragment>
@@ -32,7 +32,7 @@ function KegBeerDetail(props) {
       }
       
       <hr />
-      {kegBeer.pintsLeft > 0 ? <button onClick={props.onClickingSell}>Sell a pint</button> : null}
+      {kegBeer.pintsLeft > 0 ? <button onClick={()=> onClickingSell()}>Sell a pint</button> : null}
       <button onClick={() => onClickingEdit()}>Update Beer</button>
       <button onClick={() => onClickingDelete(kegBeer.id)}>Delete Beer</button>
 
