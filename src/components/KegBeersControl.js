@@ -12,15 +12,20 @@ class KegBeersControl extends React.Component {
 
   handleClick = () => {
     const {dispatch} = this.props;
-    
     if (this.props.selectedKegBeer != null) {
-      console.log(this.props.selectedKegBeer);
-      const action =b.selectedKegBeer(this.props.selectedKegBeer);
-      dispatch(action);
-    } else {
-      //console.log(this.props.selectedKegBeer);
-      const action2 = b.toggleForm();
+      if (this.props.formVisibleOnPage){
+        const action = b.toggleForm();
+        dispatch(action);
+      }
+      const action2 =b.deselectKegBeer();
       dispatch(action2);
+      if (this.props.editing){
+        const action3 = b.editing();
+        dispatch(action3);
+      }
+    } else {
+      const action4 = b.toggleForm();
+      dispatch(action4);
     }
   }
 
@@ -36,12 +41,11 @@ class KegBeersControl extends React.Component {
   //Details
   handleChangingSelectedKegBeer = (id) => {
     const {dispatch} = this.props;
-    const selectedKegBeer1 = this.props.masterKegBeerList[id];
-    console.log(selectedKegBeer1);
-    const action = b.selectedKegBeer(selectedKegBeer1);
-    console.log(action);
+    const selectedKegBeer = this.props.masterKegBeerList[id];
+    const action = b.selectedKegBeer(selectedKegBeer);
     dispatch(action);
-    console.log(action);
+    
+    
   }
 
   //Delete
@@ -49,7 +53,7 @@ class KegBeersControl extends React.Component {
     const { dispatch } = this.props;
     const action = b.deleteKegBeer(id);
     dispatch(action);
-    const action2 = b.selectedKegBeer(null);
+    const action2 = b.deselectKegBeer();
     dispatch(action2);
   }
 
@@ -66,7 +70,7 @@ class KegBeersControl extends React.Component {
     dispatch(action);
     const action2 = b.editing();
     dispatch(action2);
-    const action3 = b.selectedKegBeer(null);
+    const action3 = b.deselectKegBeer();
     dispatch(action3);
     
   }

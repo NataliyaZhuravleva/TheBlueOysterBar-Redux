@@ -35,8 +35,10 @@ describe('the blue oyster bar actions', () => {
   });
 
   it('selectedKegBeer should create SELECT_KEGBEER action', () => {
-    expect(actions.selectedKegBeer()).toEqual({
-      type: c.SELECT_KEGBEER
+    const kegBeer = {};
+    expect(actions.selectedKegBeer(kegBeer)).toEqual({
+      type: c.SELECT_KEGBEER,
+      selectedKegBeer: kegBeer
     });
   });
 

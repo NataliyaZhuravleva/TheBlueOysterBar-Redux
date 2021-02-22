@@ -1,6 +1,6 @@
 import * as c from './ActionTypes';
 
-export const deleteKegBeer = id =>({
+export const deleteKegBeer = (id) =>({
   type: c.DELETE_KEGBEER,
   id
 });
@@ -26,8 +26,10 @@ export const editing = ()=>({
   type: c.TOGGLE_UPDATE
 });
 
-export const selectedKegBeer = ()=>({
-  type: c.SELECT_KEGBEER
+export const selectedKegBeer = (kegBeer)=>({
+  type: c.SELECT_KEGBEER,
+  selectedKegBeer: kegBeer
+
 });
 
 export const deselectKegBeer = ()=>({

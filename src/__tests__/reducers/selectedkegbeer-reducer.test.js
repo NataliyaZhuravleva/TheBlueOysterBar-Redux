@@ -1,7 +1,7 @@
 import selectedKegBeerReducer from '../../reducers/selectedkegbeer-reducer';
 import * as c from '../../actions/ActionTypes';
 
-describe("formVisibleReducer", () => {
+describe("selectedKegBeerReducer", () => {
   let action;
   const kegBeerData = {
     name: 'Guinness Blonde',
@@ -18,24 +18,26 @@ describe("formVisibleReducer", () => {
   });
 
   test('Should successfully return a keg beer', ()=>{
-    const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerData;
+    //const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerData;
     action = {
       type: c.SELECT_KEGBEER,
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      pintsLeft: pintsLeft,
-      id: id
+      selectedKegBeer: kegBeerData,
+      // name: name,
+      // brand: brand,
+      // price: price,
+      // alcoholContent: alcoholContent,
+      // pintsLeft: pintsLeft,
+      // id: id
     };
-    expect(selectedKegBeerReducer(null, action)).toEqual({
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      pintsLeft: pintsLeft,
-      id: id
-    });
+    expect(selectedKegBeerReducer(null, action)).toMatchObject(kegBeerData)
+      // name: name,
+      // brand: brand,
+      // price: price,
+      // alcoholContent: alcoholContent,
+      // pintsLeft: pintsLeft,
+      // id: id
+      
+   // });
   });
 
   test('Should successfully deselect a keg beer and return null', ()=>{

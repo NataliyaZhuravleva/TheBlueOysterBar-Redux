@@ -8,7 +8,7 @@ function KegBeerDetail(props) {
     <React.Fragment>
       <h1 style={{color: '#575B56'}}>Beer Details:</h1>
       <h3 style={{color: '#ff3358'}}>{kegBeer.name}({kegBeer.brand}):</h3>
-      
+
       {/* price handling */}
       {kegBeer.price<=3 ?
       <p >Price: <em style={{color: 'red'}}>${kegBeer.price}<br />Beer on Sale!</em></p>
@@ -33,8 +33,8 @@ function KegBeerDetail(props) {
       
       <hr />
       {kegBeer.pintsLeft > 0 ? <button onClick={props.onClickingSell}>Sell a pint</button> : null}
-      <button onClick={() => props.onClickingEdit()}>Update Beer</button>
-      <button onClick={() => props.onClickingDelete(kegBeer.id)}>Delete Beer</button>
+      <button onClick={() => onClickingEdit()}>Update Beer</button>
+      <button onClick={() => onClickingDelete(kegBeer.id)}>Delete Beer</button>
 
     </React.Fragment>
   );

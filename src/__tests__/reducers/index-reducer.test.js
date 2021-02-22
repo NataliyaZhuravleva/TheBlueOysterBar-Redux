@@ -5,6 +5,7 @@ import kegBeerListReducer from '../../reducers/kegbeer-list-reducer';
 import editingReducer from '../../reducers/editing-reducer';
 import selectedKegBeerReducer from '../../reducers/selectedkegbeer-reducer';
 import * as c from '../../actions/ActionTypes';
+import { selectedKegBeer } from '../../actions';
 
 let store = createStore(rootReducer);
 
@@ -58,7 +59,8 @@ describe("rootReducer", () => {
 
   test('Check that SELECT_KEGBEER action works for selectedKegBeerReducer and root reducer', () => {
     const action = {
-      type: c.SELECT_KEGBEER
+      type: c.SELECT_KEGBEER,
+      selectedKegBeer: selectedKegBeer
     }
     store.dispatch(action);
     expect(store.getState().selectedKegBeer).toEqual(selectedKegBeerReducer(undefined, action));

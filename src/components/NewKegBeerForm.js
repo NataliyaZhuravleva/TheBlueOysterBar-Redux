@@ -9,8 +9,8 @@ function NewKegBeerForm(props) {
     props.onNewKegBeerCreation({
       name: event.target.name.value,
       brand: event.target.brand.value,
-      price: parseInt(event.target.price.value),
-      alcoholContent: parseInt(event.target.alcoholContent.value),
+      price: parseFloat(event.target.price.value),
+      alcoholContent: parseFloat(event.target.alcoholContent.value),
       pintsLeft: 124,
       id: v4()
     });
