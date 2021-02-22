@@ -37,4 +37,18 @@ describe("formVisibleReducer", () => {
       id: id
     });
   });
+
+  test('Should successfully deselect a keg beer and return null', ()=>{
+    const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerData;
+    const currentState = {
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      pintsLeft: pintsLeft,
+      id: id
+    };
+    action = {type: c.DESELECT_KEGBEER}
+    expect(selectedKegBeerReducer(currentState, action)).toEqual(null);
+  });
 });

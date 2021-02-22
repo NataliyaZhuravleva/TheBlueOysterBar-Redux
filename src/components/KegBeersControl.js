@@ -12,10 +12,13 @@ class KegBeersControl extends React.Component {
 
   handleClick = () => {
     const {dispatch} = this.props;
+    
     if (this.props.selectedKegBeer != null) {
-      const action =b.selectedKegBeer();
+      console.log(this.props.selectedKegBeer);
+      const action =b.selectedKegBeer(this.props.selectedKegBeer);
       dispatch(action);
     } else {
+      //console.log(this.props.selectedKegBeer);
       const action2 = b.toggleForm();
       dispatch(action2);
     }
@@ -33,9 +36,12 @@ class KegBeersControl extends React.Component {
   //Details
   handleChangingSelectedKegBeer = (id) => {
     const {dispatch} = this.props;
-    const selectedKegBeer = this.props.masterKegBeerList[id];
-    const action = b.selectedKegBeer(selectedKegBeer);
+    const selectedKegBeer1 = this.props.masterKegBeerList[id];
+    console.log(selectedKegBeer1);
+    const action = b.selectedKegBeer(selectedKegBeer1);
+    console.log(action);
     dispatch(action);
+    console.log(action);
   }
 
   //Delete
@@ -87,6 +93,7 @@ class KegBeersControl extends React.Component {
       currentlyVisibleState = <EditKegBeerForm kegBeer={this.props.selectedKegBeer} onEditKegBeer={this.handleEditingKegBeerInList} />
       buttonText = "Return to Keg Beers List";
     } else if (this.props.selectedKegBeer != null) {
+      console.log(this.props.selectedKegBeer);
       currentlyVisibleState =
         <KegBeerDetail
           kegBeer={this.props.selectedKegBeer}

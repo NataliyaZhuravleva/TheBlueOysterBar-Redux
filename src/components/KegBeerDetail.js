@@ -33,8 +33,8 @@ function KegBeerDetail(props) {
       
       <hr />
       {kegBeer.pintsLeft > 0 ? <button onClick={props.onClickingSell}>Sell a pint</button> : null}
-      <button onClick={() => onClickingEdit()}>Update Beer</button>
-      <button onClick={() => onClickingDelete(kegBeer.id)}>Delete Beer</button>
+      <button onClick={() => props.onClickingEdit()}>Update Beer</button>
+      <button onClick={() => props.onClickingDelete(kegBeer.id)}>Delete Beer</button>
 
     </React.Fragment>
   );

@@ -13,6 +13,8 @@ export default (state = null, action) => {
         pintsLeft: pintsLeft,
         id: id
       }
+      case c.DESELECT_KEGBEER:
+        return null;  
     default:
       return state;
   }
