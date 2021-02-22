@@ -6,6 +6,7 @@ export default (state = {}, action) => {
     case c.SELL_PINT:
       let kegBeerState = { ...state };
       kegBeerState.pintsLeft--;
+      //console.log(kegBeerState.pintsLeft);
       return kegBeerState;
     default:
       return state;

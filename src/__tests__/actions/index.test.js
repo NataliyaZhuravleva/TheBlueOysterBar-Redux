@@ -47,4 +47,10 @@ describe('the blue oyster bar actions', () => {
       type: c.DESELECT_KEGBEER
     });
   });  
+  
+  it('pintsLeft should create SELL_PINT action', () => {
+    expect(actions.pintsLeft()).toEqual({
+      type: c.SELL_PINT
+    });
+  });
 });

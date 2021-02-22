@@ -14,8 +14,7 @@ describe ('pintsLeftReducer', ()=>{
     let action = {
       type: c.SELL_PINT,
     };
-    console.log(action);
-    expect(pintsLeftReducer(kegBeerData, action)).toMatchObject({
+    expect(pintsLeftReducer(kegBeerData, action)).toEqual({
         name: 'Guinness Blonde',
         brand: 'Guinness',
         price: 4.99,
