@@ -39,4 +39,10 @@ describe('the blue oyster bar actions', () => {
       type: c.SELECT_KEGBEER
     });
   });
+
+  it('deselectKegBeer should create DESELECT_KEGBEER action', () => {
+    expect(actions.deselectKegBeer()).toEqual({
+      type: c.DESELECT_KEGBEER
+    });
+  });  
 });

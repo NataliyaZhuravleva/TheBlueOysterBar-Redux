@@ -29,3 +29,7 @@ export const editing = ()=>({
 export const selectedKegBeer = ()=>({
   type: c.SELECT_KEGBEER
 });
+
+export const deselectKegBeer = ()=>({
+  type: c.DESELECT_KEGBEER
+});
