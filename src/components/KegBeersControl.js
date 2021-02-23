@@ -78,17 +78,18 @@ class KegBeersControl extends React.Component {
     const {dispatch} = this.props;
     const kegBeerToSell = this.props.selectedKegBeer;
     if (kegBeerToSell.pintsLeft > 0) {
-     
       const action = b.pintsLeft(kegBeerToSell);
       dispatch(action);
+  
+    //   const action2 = b.deleteKegBeer(id);
+    // dispatch(action2);
+    
+    // const action3 = b.addKegBeer(kegBeerToSell);
+    // dispatch(action3);
     
     }
-    const action2 = b.deleteKegBeer(id);
-    dispatch(action2);
-    const action3 = b.addKegBeer(kegBeerToSell);
-    dispatch(action3);
-    const action4 = b.selectedKegBeer(kegBeerToSell);
-    dispatch(action4);
+    
+    
   }
 
   render() {
@@ -128,7 +129,7 @@ KegBeersControl.propTypes = {
   formVisibleOnPage: PropTypes.bool,
   editing:PropTypes.bool,
   selectedKegBeer: PropTypes.object,
-  //pintsLeft: PropTypes.object
+  
 };
 
 const mapStateToProps = state =>{
@@ -137,7 +138,6 @@ const mapStateToProps = state =>{
     formVisibleOnPage: state.formVisibleOnPage,
     editing: state.editing,
     selectedKegBeer: state.selectedKegBeer,
-    //pintsLeft: state.selectedKegBeer
   }
 }
 

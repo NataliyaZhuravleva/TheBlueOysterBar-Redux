@@ -47,8 +47,8 @@ The application has following functionality:_
 * A user can submit a form to `add` a new keg beer to a list.
 * A user is able to click on a keg to see its `detail` page.
 * A user may see how many pints are left in a keg. A full keg has roughly `124` pints.
-* A user should be able to click a button `Sell a pint` in beer details when they sell a pint of it. This should decrease the number of pints left by 1. (temporarily not working)
-* Pints is not be able to go below `0`. Once keg is empty, user have a message `Out of Stock` (color-coded in red color). (temporarily not working)
+* A user should be able to click a button `Sell a pint` in beer details when they sell a pint of it. This should decrease the number of pints left by 1.
+* Pints is not be able to go below `0`. Once keg is empty, user have a message `Out of Stock` 
 * A user have a message that says `Almost Empty`(color-coded in red color) if keg is with less than 10 pints. (temporarily not working)
 * Prices are color-coded based on their price:
   1. If the price less or equal `$3`, user have a message `Beer on Sale!` in red color.
@@ -71,7 +71,7 @@ The application has following functionality:_
 ![Preview](src/img/bar-diagram.png)
 ### <span style="color:#0ec2b8" id="bugs">Known Bugs</span>
 
-_Sell a pint button doesn't work_
+_After selling a pint, kegBeerList doesn't update properly_
 
 ## <span style="color:#0ec2b8" id="setup">Setup and Use</span>
 ### <span style="color:#0ec2b8" id="cloning">Cloning the project</span>
