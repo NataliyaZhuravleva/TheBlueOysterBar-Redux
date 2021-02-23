@@ -18,7 +18,7 @@ describe("rootReducer", () => {
       formVisibleOnPage: false,
       editing: false,
       selectedKegBeer: null,
-      pintsLeft: {}
+      //pintsLeft: {}
     });
   });
   test('Check that initial state of kegBeerListReducer matches root reducer', () => {
@@ -29,9 +29,9 @@ describe("rootReducer", () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
   });
 
-  test('Check that initial state of pintsLeftReducer matches root reducer', () => {
-    expect(store.getState().pintsLeft).toEqual(pintsLeftReducer(undefined, { type: null }));
-  });
+  // test('Check that initial state of pintsLeftReducer matches root reducer', () => {
+  //   expect(store.getState().pintsLeft).toEqual(pintsLeftReducer(undefined, { type: null }));
+  // });
 
   test('Check that ADD_KEGBEER action works for kegBeerListReducer and root reducer', () => {
     const action = {
@@ -72,11 +72,11 @@ describe("rootReducer", () => {
     expect(store.getState().selectedKegBeer).toEqual(selectedKegBeerReducer(undefined, action));
   });
 
-  test('Check that SELL_PINT action works for pintsLeftReducer and root reducer', () => {
+  test('Check that SELL_PINT action works for selectedKegBeerReducer and root reducer', () => {
     const action = {
       type: c.SELL_PINT,     
     }
     store.dispatch(action);
-    expect(store.getState().pintsLeft).toEqual(pintsLeftReducer(undefined, action));
+    expect(store.getState().selectedKegBeer).toEqual(selectedKegBeerReducer(undefined, action));
   });
 });

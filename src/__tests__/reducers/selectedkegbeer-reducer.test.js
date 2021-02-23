@@ -38,4 +38,18 @@ describe("selectedKegBeerReducer", () => {
     action = {type: c.DESELECT_KEGBEER}
     expect(selectedKegBeerReducer(currentState, action)).toEqual(null);
   });
+
+  test('Should successfully sell a keg pint', () => {
+    let action = {
+      type: c.SELL_PINT,
+    };
+    expect(selectedKegBeerReducer(kegBeerData, action)).toEqual({
+        name: 'Guinness Blonde',
+        brand: 'Guinness',
+        price: 4.99,
+        alcoholContent: 5.0,
+        pintsLeft: 123,
+        id: 1
+    });
+  });
 });

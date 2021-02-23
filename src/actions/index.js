@@ -37,14 +37,15 @@ export const deselectKegBeer = ()=>({
 });
 
 export const pintsLeft = (kegBeerToSell)=>{
-  const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerToSell;
+  //const { name, brand, price, alcoholContent, pintsLeft, id } = kegBeerToSell;
+  
   return {
     type: c.SELL_PINT,
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      pintsLeft: pintsLeft,
-      id: id
+      // name: name,
+      // brand: brand,
+      // price: price,
+      // alcoholContent: alcoholContent,
+      // pintsLeft: pintsLeft-1,
+      // id: id
   }
 };
