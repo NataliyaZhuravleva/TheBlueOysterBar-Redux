@@ -41,6 +41,8 @@ export const pintsLeft = (kegBeerToSell)=>{
   
   return {
     type: c.SELL_PINT,
+    pintsLeft: kegBeerToSell
+    //selectedkegBeer: kegBeerToSell
       // name: name,
       // brand: brand,
       // price: price,
