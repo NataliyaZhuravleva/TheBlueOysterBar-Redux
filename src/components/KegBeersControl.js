@@ -11,15 +11,15 @@ import * as b from './../actions';
 class KegBeersControl extends React.Component {
 
   handleClick = () => {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
     if (this.props.selectedKegBeer != null) {
-      if (this.props.formVisibleOnPage){
+      if (this.props.formVisibleOnPage) {
         const action = b.toggleForm();
         dispatch(action);
       }
-      const action2 =b.deselectKegBeer();
+      const action2 = b.deselectKegBeer();
       dispatch(action2);
-      if (this.props.editing){
+      if (this.props.editing) {
         const action3 = b.editing();
         dispatch(action3);
       }
@@ -40,11 +40,11 @@ class KegBeersControl extends React.Component {
 
   //Details
   handleChangingSelectedKegBeer = (id) => {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
     const selectedKegBeer = this.props.masterKegBeerList[id];
     const action = b.selectedKegBeer(selectedKegBeer);
     dispatch(action);
-    
+
   }
 
   //Delete
@@ -58,7 +58,7 @@ class KegBeersControl extends React.Component {
 
   //Edit
   handleEditClick = () => {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
     const action = b.editing();
     dispatch(action);
   }
@@ -71,25 +71,20 @@ class KegBeersControl extends React.Component {
     dispatch(action2);
     const action3 = b.deselectKegBeer();
     dispatch(action3);
-    
+
   }
 
   handleSellClick = (id) => {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
     const kegBeerToSell = this.props.selectedKegBeer;
     if (kegBeerToSell.pintsLeft > 0) {
       const action = b.pintsLeft(kegBeerToSell);
       dispatch(action);
-  
-    //   const action2 = b.deleteKegBeer(id);
-    // dispatch(action2);
-    
-    // const action3 = b.addKegBeer(kegBeerToSell);
-    // dispatch(action3);
-    
+      const action3 = b.addKegBeer(kegBeerToSell);
+      dispatch(action3);
     }
     
-    
+
   }
 
   render() {
@@ -100,7 +95,7 @@ class KegBeersControl extends React.Component {
       currentlyVisibleState = <EditKegBeerForm kegBeer={this.props.selectedKegBeer} onEditKegBeer={this.handleEditingKegBeerInList} />
       buttonText = "Return to Keg Beers List";
     } else if (this.props.selectedKegBeer != null) {
-      
+
       currentlyVisibleState =
         <KegBeerDetail
           kegBeer={this.props.selectedKegBeer}
@@ -112,7 +107,9 @@ class KegBeersControl extends React.Component {
       currentlyVisibleState = <NewKegBeerForm onNewKegBeerCreation={this.handleAddingNewKegBeerToList} />
       buttonText = "Return to Keg Beers List";
     } else {
-      currentlyVisibleState = <KegBeerList kegBeerList={this.props.masterKegBeerList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
+      let kegList = this.props.masterKegBeerList;
+      //KegList< kegBeerList={kegList}>
+      currentlyVisibleState = <KegBeerList kegBeerList={kegList} onKegBeerSelection={this.handleChangingSelectedKegBeer} />
       buttonText = "Add Keg Beer";
     }
     return (
@@ -127,12 +124,12 @@ class KegBeersControl extends React.Component {
 KegBeersControl.propTypes = {
   masterKegBeerList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool,
-  editing:PropTypes.bool,
+  editing: PropTypes.bool,
   selectedKegBeer: PropTypes.object,
-  
+
 };
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
   return {
     masterKegBeerList: state.masterKegBeerList,
     formVisibleOnPage: state.formVisibleOnPage,

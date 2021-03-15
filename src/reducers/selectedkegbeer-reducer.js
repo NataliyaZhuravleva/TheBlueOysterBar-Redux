@@ -10,16 +10,9 @@ export default (state = null, action) => {
     case c.DESELECT_KEGBEER:
       return null;
     case c.SELL_PINT:
-      let kegBeerState = {...state};
-      console.log(kegBeerState);
-      kegBeerState.pintsLeft--;
-      //selectedKegBeer.pintsLeft--;
-      return kegBeerState;
-      //return selectedKegBeer;
+      state.pintsLeft--
+      return state;
     default:
       return state;
-      
     }
-    
-     
 }

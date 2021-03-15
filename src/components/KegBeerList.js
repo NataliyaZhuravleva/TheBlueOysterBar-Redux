@@ -1,6 +1,7 @@
 import React from 'react';
 import KegBeer from './KegBeer';
 import PropTypes from 'prop-types';
+import { pintsLeft } from '../actions/index';
 
 function KegBeerList(props) {
   
@@ -24,7 +25,7 @@ function KegBeerList(props) {
 
 KegBeerList.propTypes={
   kegBeerList: PropTypes.object,
-  onKegBeerSelection: PropTypes.func
+  onKegBeerSelection: PropTypes.func,
 }
 
 export default KegBeerList;
